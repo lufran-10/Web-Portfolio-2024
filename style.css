@@ -56,7 +56,8 @@ body {
   border-bottom: 3px solid var(--main-color);
 }
 
-#menu-icon {
+#menu-icon,
+#close-icon {
   font-size: 3.6rem;
   color: var(--main-color);
   display: none;
@@ -477,22 +478,77 @@ span {
   }
 }
 
+@media (max-width: 895px) {
+  .home {
+    flex-direction: column-reverse;
+    margin: 5rem 4rem;
+    gap: 3rem;
+  }
+  .home-content {
+    align-items: center;
+  }
+  .home-content h1 {
+    margin-top: 2.5rem;
+  }
+  .home-img img {
+    width: 35vw;
+  }
+  .about img {
+    display: none;
+  }
+}
+
 @media (max-width: 750px) {
+  html {
+    font-size: 45%;
+  }
   .heading {
     text-align: center;
   }
   #menu-icon {
     display: block;
   }
+  .navbar {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(3px);
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 6% 10rem;
+  }
+  #close-icon {
+    align-self: flex-end;
+  }
+  .navbar a {
+    display: block;
+    font-size: 2rem;
+    margin: 0;
+    color: white;
+  }
+  .about {
+    gap: 0;
+  }
+  .about-content {
+    text-align: center;
+    margin: 0 4rem;
+  }
   .projects-box {
     grid-template-columns: repeat(1, 1fr);
   }
+  .project-card {
+    width: 50%;
+  }
 }
 
-@media (max-width: 895px) {
-  #menu-icon {
-    display: block;
-  }
+/* @media (max-width: 895px) {
   .navbar {
     position: absolute;
     top: 100%;
@@ -515,45 +571,7 @@ span {
     margin: 3rem 0;
     color: white;
   }
-  .home {
-    flex-direction: column-reverse;
-    margin: 5rem 4rem;
-    gap: 3rem;
-  }
-  .home-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
   .home-content h3 {
     font-size: 2.6rem;
   }
-  .home-content h1 {
-    font-size: 8rem;
-    margin-top: 3rem;
-  }
-  .home-content p {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  .home-img img {
-    width: 56vw;
-    margin: 3rem 0;
-  }
-  .about {
-    flex-direction: column-reverse;
-    padding: 10rem 9%;
-  }
-  .about .heading {
-    margin: 3rem 0;
-  }
-  .about img {
-    width: 50vw;
-  }
-
-  .project-card img {
-    min-width: 42rem;
-  }
-}
+} */

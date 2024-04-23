@@ -1,8 +1,9 @@
-let menuIcon = document.querySelector("#menu-icon");
-let navbar = document.querySelector(".navbar");
+const menuIcon = document.querySelector("#menu-icon");
+const closeIcon = document.querySelector("#close-icon");
+const navbar = document.querySelector(".navbar");
 
-let sections = document.querySelectorAll("section");
-let navLinks = document.querySelectorAll("header nav a");
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("header nav a");
 
 const form = document.getElementById("form");
 
@@ -20,8 +21,8 @@ window.onscroll = () => {
     let id = sec.getAttribute("id");
 
     if (top >= offset && top < offset + height) {
-      navLinks.forEach((links) => {
-        links.classList.remove("active");
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
         document
           .querySelector("header nav a[href*=" + id + "]")
           .classList.add("active");
@@ -30,7 +31,19 @@ window.onscroll = () => {
   });
 };
 
+//Me falta poder cerrar el navbar cuando aprieto un link
+
 menuIcon.onclick = () => {
-  menuIcon.classList.toggle("bx-x");
-  navbar.classList.toggle("active");
+  navbar.style.display = "flex";
+  closeIcon.style.display = "block";
+  // navLinks.forEach((link) => {
+  //   link.onclick = "closeNav()";
+  // });
 };
+
+function closeNav() {
+  navbar.style.display = "none";
+  // navLinks.forEach((link) => {
+  //   link.removeAttribute("onclick");
+  // });
+}
