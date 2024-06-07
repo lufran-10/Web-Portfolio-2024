@@ -31,19 +31,22 @@ window.onscroll = () => {
   });
 };
 
-//Me falta poder cerrar el navbar cuando aprieto un link
-
+// Open navbar for when screen width is 750px or less
 menuIcon.onclick = () => {
   navbar.style.display = "flex";
   closeIcon.style.display = "block";
-  // navLinks.forEach((link) => {
-  //   link.onclick = "closeNav()";
-  // });
 };
 
+// Close navbar for when screen width is 750px or less
 function closeNav() {
   navbar.style.display = "none";
-  // navLinks.forEach((link) => {
-  //   link.removeAttribute("onclick");
-  // });
 }
+
+// Close the navbar when clicking on a link if the screen width is 750px or less
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    if (window.innerWidth <= 750) {
+      closeNav();
+    }
+  });
+});

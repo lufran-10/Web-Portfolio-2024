@@ -41,6 +41,15 @@ body {
   width: 100%;
 }
 
+.lang-btn {
+  position: relative;
+  margin-right: auto;
+  font-size: 1.8rem;
+  color: var(--text-color);
+  transition: 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
 .navbar a {
   font-size: 1.8rem;
   color: var(--text-color);
@@ -51,7 +60,8 @@ body {
 }
 
 .navbar a:hover,
-.navbar a.active {
+.navbar a.active,
+.lang-btn:hover {
   color: var(--main-color);
   border-bottom: 3px solid var(--main-color);
 }
@@ -187,15 +197,12 @@ span {
   position: relative;
   width: 328px;
   border-radius: 50%;
-  box-shadow: 0 0 25px var(--main-color);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   top: 1rem;
   cursor: pointer;
   transition: 0.4s ease-in-out;
-}
-
-.about-img img:hover {
-  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color),
-    0 0 100px var(--main-color);
 }
 
 .heading {
@@ -261,24 +268,45 @@ span {
     #0a070b,
     #080808
   );
+  position: relative;
 }
 
-.projects-box {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  place-items: center;
-  margin: 5rem 0;
-  column-gap: 3rem;
-  row-gap: 5rem;
+.carousel {
+  margin-top: 3rem;
+}
+
+.slick-arrow {
+  width: 30px;
+  height: 30px;
+  font-size: 1px;
+  color: transparent;
+  position: absolute;
+  top: 49%;
+  z-index: 5;
+  background-color: var(--main-color);
+  opacity: 0.9;
+  background-position: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slick-prev {
+  left: 3px;
+  background-image: url("./images/chevron-left-regular-24.png");
+}
+
+.slick-next {
+  right: 3px;
+  background-image: url("./images/chevron-right-regular-24.png");
 }
 
 .project-card {
   position: relative;
-  height: 90%;
-  width: 90%;
+  height: 100%;
+  width: 100%;
   max-width: 450px;
   max-height: 450px;
-  border-radius: 5rem;
+  border-radius: 1rem;
   cursor: pointer;
   box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
   transition: 0.4s ease;
@@ -289,7 +317,6 @@ span {
 }
 
 .project-card:hover {
-  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
   transform: scale(1.02);
 }
 
@@ -301,7 +328,7 @@ span {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 2rem;
+  padding: 2rem 5rem;
   height: 100%;
   width: 100%;
   display: flex;
@@ -360,6 +387,10 @@ span {
 
 .contact {
   background: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .contact h2 {
@@ -473,9 +504,6 @@ span {
   section {
     padding: 10rem 5%;
   }
-  .projects-box {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 895px) {
@@ -540,38 +568,51 @@ span {
     text-align: center;
     margin: 0 4rem;
   }
-  .projects-box {
-    grid-template-columns: repeat(1, 1fr);
+  .about-content i {
+    text-align: center;
+    padding: 0.7rem 0.5rem 0.3rem;
+    font-size: 3rem;
+    margin-right: 1.5rem;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    transition: 0.3s ease;
+    cursor: pointer;
+    color: var(--main-color);
+    background: var(--text-color);
   }
+
+  .about-content i:hover {
+    box-shadow: none;
+  }
+
   .project-card {
     width: 50%;
   }
-}
-
-/* @media (max-width: 895px) {
-  .navbar {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 50%;
-    padding: 1rem 3%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(20px);
-    border-bottom-left-radius: 2rem;
-    border-left: 2px solid var(--main-color);
-    border-bottom: 2px solid var(--main-color);
-    display: none;
-  }
-  .navbar .active {
-    display: block;
-  }
-  .navbar a {
-    display: block;
-    font-size: 2rem;
-    margin: 3rem 0;
-    color: white;
-  }
   .home-content h3 {
     font-size: 2.6rem;
+    text-align: center;
   }
-} */
+  .footer {
+    font-size: 7px;
+  }
+  .footer .social a {
+    font-size: 15px;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: 0.3s ease;
+  }
+
+  .footer .social a:hover {
+    transform: none;
+    background: transparent;
+    color: var(--main-color);
+    box-shadow: none;
+  }
+}
